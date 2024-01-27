@@ -1,6 +1,8 @@
 import processing.core.PApplet;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class a2 extends PApplet {
     // TODO COPY FROM LINE BELOW ----------------------------------------------------------------------
@@ -40,10 +42,14 @@ public class a2 extends PApplet {
         MenuItem first;
         ArrayList<MenuItem> menuItems;
         ArrayList<MenuItem> selectedItems;
+        ArrayList<MenuItem> recencyList;
+        HashMap<String, Integer> frequencyMap;
 
         Menu() {
             menuItems = new ArrayList<>();
             selectedItems = new ArrayList<>();
+            recencyList = new ArrayList<>();
+            frequencyMap = new HashMap<>();
 
             String[] menuNames = {"File", "Open", "Favourites", "Sketchbook",
                     "Examples", "Close", "Save", "Save As", "Export",
@@ -66,7 +72,7 @@ public class a2 extends PApplet {
             float yTextIncrease = 0;
             for (int i = 0; i < menuNames.length; i++) {
                 // Create menu item
-                MenuItem menuItem = new MenuItem(menuNames[i], 140, 117, 50,
+                MenuItem menuItem = new MenuItem(menuNames[i], 290, 117, 200,
                         90, 180, 40);
 
                 // Since we need to take into account that these menu items are part of a drop down menu,
@@ -93,16 +99,17 @@ public class a2 extends PApplet {
     // Create menu with menu items
     Menu menu = new Menu();
     boolean isMenuOpen = false;
+    boolean changeColour = false;
 
     public void settings() {
-        size(600, 600);
+        size(600, 750);
     }
 
     public void setup() {
         // Verify correct variables
-        for (MenuItem menuItem : menu.menuItems) {
-            println(menuItem.toString());
-        }
+//        for (MenuItem menuItem : menu.menuItems) {
+//            println(menuItem.toString());
+//        }
 
         // Draw first menuItem
         fill(100);
@@ -119,7 +126,6 @@ public class a2 extends PApplet {
                 mouseY > menuItem.yRect && mouseY < menuItem.yRect + menuItem.hRect;
     }
 
-
     public void draw() {
         if (isMenuOpen) {
             // Gets the first item on the list (the title)
@@ -134,6 +140,8 @@ public class a2 extends PApplet {
 
             // Draws all the other items
             for (int i = 1; i < menu.menuItems.size(); i++) {
+
+                // Create mouse hover effect
                 MenuItem menuItem = menu.menuItems.get(i);
                 if (isMouseOverRect(menu.menuItems.get(i))) {
                     fill(250);
@@ -148,11 +156,18 @@ public class a2 extends PApplet {
                 // Draw text
                 textSize(20);
                 textAlign(CENTER);
+
+                // Compare items from recentSelectionsList. If it contains a MenuItem from menuItems,
+                // change the colour
+                if (changeColour) {
+                    highlightRecencyList();
+                }
                 fill(0);
                 text(menuItem.name, menuItem.xText, menuItem.yText);
             }
+
         }
-        else {
+        else if (!isMenuOpen) {
             closeMenu();
         }
     }
@@ -165,11 +180,37 @@ public class a2 extends PApplet {
         else if (isMenuOpen) {
             for (int i = 1; i < menu.menuItems.size(); i++) {
                 if (isMouseOverRect(menu.menuItems.get(i))) {
-                    menu.selectedItems.add(menu.menuItems.get(i));
+                    menu.recencyList.add(0, menu.menuItems.get(i));
+
                     println("item has been selected and added to the list");
-                    println("selected items: " + menu.selectedItems.toString());
+                    println("3 most recent menu items: " + menu.recencyList.toString());
+
                     isMenuOpen = false;
                 }
+            }
+        }
+    }
+
+    public void keyPressed() {
+        if (key == '1') {
+            // Check if recency list is empty
+            if (menu.recencyList.isEmpty()) {
+                println("Cannot display recency list as no items have been added.");
+            }
+            else {
+                refreshRecencyListDisplay();
+                displayRecencyList();
+            }
+        }
+        if (key == '2') {
+            if (menu.recencyList.isEmpty()) {
+                println("Cannot change menu colour as no items have been added to recency list.");
+            }
+            else {
+                if (isMenuOpen) {
+                    changeColour = true;
+                }
+
             }
         }
     }
@@ -181,9 +222,50 @@ public class a2 extends PApplet {
         MenuItem lastItem = menu.menuItems.get(menu.menuItems.size() - 1);
 
         // Draw a rectangle over the menu
-        rect(secondItem.xRect, secondItem.yRect,
+        rect(secondItem.xRect, secondItem.yRect + 1,
                 lastItem.xRect + lastItem.wRect, lastItem.yRect + lastItem.hRect);
 
+        // Reset the colour of the recency highlighting
+        changeColour = false;
+    }
+
+    public void displayRecencyList() {
+        fill(0);
+        text("Recency List: ", 100, 80);
+        int textIncrease = 0;
+        for (int i = 0; i < menu.recencyList.size(); i++) {
+            if (i < 3) {
+                textAlign(LEFT);
+                text(menu.recencyList.get(i).name, 190 + textIncrease, 80);
+                textIncrease += 115;
+            }
+            else {
+                i = menu.recencyList.size();
+            }
+        }
+        println("recency list is being displayed");
+    }
+
+    public void refreshRecencyListDisplay() {
+        // Clear canvas
+        fill(203);
+        noStroke();
+        rect(40, 35, 600, 50);
+
+        println("recency list should be cleared");
+    }
+
+    public void highlightRecencyList() {
+        for (int i = 0; i < menu.recencyList.size(); i++) {
+            if (i < 3) {
+                MenuItem recencyItem = menu.recencyList.get(i);
+                if (menu.menuItems.contains(recencyItem)) {
+                    fill(255, 0, 0);
+                    text(recencyItem.name, recencyItem.xText, recencyItem.yText);
+                }
+            }
+        }
+        println("recency list should be highlighted");
     }
 
 
