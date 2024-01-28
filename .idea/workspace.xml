@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d63d105-9004-40a9-8183-a6a333e0c5e3" name="Changes" comment="initial commit for part 1">
+    <list default="true" id="1d63d105-9004-40a9-8183-a6a333e0c5e3" name="Changes" comment="Wrote code for 2.1 Recency; works as intended">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/a2.java" afterDir="false" />
     </list>
@@ -75,9 +75,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <module name="cmpt481_processing_assignments" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.a2" />
+        <item itemvalue="Application.test" />
         <item itemvalue="Application.a2_sketch" />
       </list>
     </recent_temporary>
@@ -91,7 +99,7 @@
       <option name="presentableId" value="Default" />
       <updated>1705711985656</updated>
       <workItem from="1705711986674" duration="9613000" />
-      <workItem from="1705956613320" duration="21494000" />
+      <workItem from="1705956613320" duration="40036000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit for part 1">
       <option name="closed" value="true" />
@@ -101,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705727134991</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Wrote code for 2.1 Recency; works as intended">
+      <option name="closed" value="true" />
+      <created>1706380843503</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1706380843503</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,6 +125,22 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit for part 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit for part 1" />
+    <MESSAGE value="Wrote code for 2.1 Recency; works as intended" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wrote code for 2.1 Recency; works as intended" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/a2.java</url>
+          <line>332</line>
+          <properties class="a2" method="highlightFrequencyItems">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

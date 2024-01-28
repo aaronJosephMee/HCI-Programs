@@ -2,7 +2,7 @@ import processing.core.PApplet;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Map;
 
 public class a2 extends PApplet {
     // TODO COPY FROM LINE BELOW ----------------------------------------------------------------------
@@ -41,15 +41,27 @@ public class a2 extends PApplet {
     class Menu {
         MenuItem first;
         ArrayList<MenuItem> menuItems;
-        ArrayList<MenuItem> selectedItems;
         ArrayList<MenuItem> recencyList;
         HashMap<String, Integer> frequencyMap;
 
+        int highestVal;
+        int lowestVal;
+        ArrayList<String> highestFrequencyList;
+        ArrayList<String> middleFrequencyList;
+        ArrayList<String> lowestFrequencyList;
+
         Menu() {
             menuItems = new ArrayList<>();
-            selectedItems = new ArrayList<>();
             recencyList = new ArrayList<>();
             frequencyMap = new HashMap<>();
+
+            highestVal = Integer.MIN_VALUE;
+            highestFrequencyList = new ArrayList<>();
+
+            middleFrequencyList = new ArrayList<>();
+
+            lowestVal = Integer.MAX_VALUE;
+            lowestFrequencyList = new ArrayList<>();
 
             String[] menuNames = {"File", "Open", "Favourites", "Sketchbook",
                     "Examples", "Close", "Save", "Save As", "Export",
@@ -99,7 +111,8 @@ public class a2 extends PApplet {
     // Create menu with menu items
     Menu menu = new Menu();
     boolean isMenuOpen = false;
-    boolean changeColour = false;
+    boolean highlightRecency = false;
+    boolean highlightFrequency = false;
 
     public void settings() {
         size(600, 750);
@@ -159,8 +172,11 @@ public class a2 extends PApplet {
 
                 // Compare items from recentSelectionsList. If it contains a MenuItem from menuItems,
                 // change the colour
-                if (changeColour) {
-                    highlightRecencyList();
+                if (highlightRecency) {
+                    highlightRecencyItems();
+                }
+                if (highlightFrequency) {
+                    highlightFrequencyItems();
                 }
                 fill(0);
                 text(menuItem.name, menuItem.xText, menuItem.yText);
@@ -175,15 +191,52 @@ public class a2 extends PApplet {
     public void mouseClicked() {
         if (isMouseOverRect(menu.first)) {
             isMenuOpen = true;
-            println("Hit the menu title");
         }
         else if (isMenuOpen) {
             for (int i = 1; i < menu.menuItems.size(); i++) {
-                if (isMouseOverRect(menu.menuItems.get(i))) {
-                    menu.recencyList.add(0, menu.menuItems.get(i));
+                MenuItem currentMenuItem = menu.menuItems.get(i);
+                if (isMouseOverRect(currentMenuItem)) {
+                    // Add to recency list
+                    menu.recencyList.add(0, currentMenuItem);
+                    println(currentMenuItem.name + " has been added to the recency list");
 
-                    println("item has been selected and added to the list");
-                    println("3 most recent menu items: " + menu.recencyList.toString());
+                    // Add to frequency map
+                    // If the frequency map does not contain the string, we need to set our count to be 1
+                    if (!menu.frequencyMap.containsKey(currentMenuItem.name)) {
+                        menu.frequencyMap.put(currentMenuItem.name, 1);
+                        println(currentMenuItem.name + " has been added to the frequency list for the first time");
+                    }
+                    // Else, increase the current frequency by 1
+                    else {
+                        int currentFrequency = menu.frequencyMap.get(currentMenuItem.name);
+                        menu.frequencyMap.put(currentMenuItem.name, currentFrequency + 1);
+                        println(currentMenuItem.name + "'s frequency has been increased by 1, with total being: " +
+                                menu.frequencyMap.get(currentMenuItem.name));
+                    }
+
+                    // Update highest and lowest frequency values
+                    if (menu.frequencyMap.size() == 1) {
+                        menu.highestVal = menu.frequencyMap.get(currentMenuItem.name);
+                        menu.lowestVal = menu.frequencyMap.get(currentMenuItem.name);
+                        println("1 item is in the hashmap; thus, highest and lowest values are: " + "\n" +
+                                "Highest Value: " + menu.highestVal + "\n" +
+                                "Lowest Value: " + menu.lowestVal);
+                    }
+                    else {
+                        for (Map.Entry<String, Integer> entry : menu.frequencyMap.entrySet()) {
+                            // Check if current value is the highest
+                            if (entry.getValue() > menu.highestVal) {
+                                menu.highestVal = entry.getValue();
+                                println("Highest value: " + menu.highestVal);
+                            }
+
+                            // Check if current value is the lowest
+                            if (entry.getValue() < menu.lowestVal) {
+                                menu.lowestVal = entry.getValue();
+                                println("Lowest value: " + menu.lowestVal);
+                            }
+                        }
+                    }
 
                     isMenuOpen = false;
                 }
@@ -208,9 +261,18 @@ public class a2 extends PApplet {
             }
             else {
                 if (isMenuOpen) {
-                    changeColour = true;
+                    highlightRecency = true;
                 }
-
+            }
+        }
+        if (key == '3') {
+            if (menu.frequencyMap.isEmpty()) {
+                println("Cannot change menu colour as no items have been added to the frequency map.");
+            }
+            else {
+                if (isMenuOpen) {
+                    highlightFrequency = true;
+                }
             }
         }
     }
@@ -226,7 +288,8 @@ public class a2 extends PApplet {
                 lastItem.xRect + lastItem.wRect, lastItem.yRect + lastItem.hRect);
 
         // Reset the colour of the recency highlighting
-        changeColour = false;
+        highlightRecency = false;
+        highlightFrequency = false;
     }
 
     public void displayRecencyList() {
@@ -255,7 +318,7 @@ public class a2 extends PApplet {
         println("recency list should be cleared");
     }
 
-    public void highlightRecencyList() {
+    public void highlightRecencyItems() {
         for (int i = 0; i < menu.recencyList.size(); i++) {
             if (i < 3) {
                 MenuItem recencyItem = menu.recencyList.get(i);
@@ -265,7 +328,48 @@ public class a2 extends PApplet {
                 }
             }
         }
-        println("recency list should be highlighted");
+    }
+
+    public void highlightFrequencyItems() {
+        // Add highest and lowest items to their respective frequency lists
+
+        for (Map.Entry<String, Integer> entry : menu.frequencyMap.entrySet()) {
+            // Add to highest frequency list
+            if (entry.getValue() == menu.highestVal) {
+                menu.highestFrequencyList.add(entry.getKey());
+
+                // Check if item is located in other list (i.e.: remove duplicates)
+                if (menu.lowestFrequencyList.contains(entry.getKey())) {
+                    menu.lowestFrequencyList.remove(entry.getKey());
+                }
+            }
+            // Add to lowest frequency list
+            if (entry.getValue() == menu.lowestVal) {
+                menu.lowestFrequencyList.add(entry.getKey());
+
+                // Check if item is located in other lists (i.e.: remove duplicates)
+                if (menu.highestFrequencyList.contains(entry.getKey())) {
+                    menu.highestFrequencyList.remove(entry.getKey());
+                }
+            }
+        }
+
+        // Update the colours on the canvas
+        for (int i = 0; i < menu.menuItems.size(); i++) {
+            MenuItem menuItem = menu.menuItems.get(i);
+            if (menu.highestFrequencyList.contains(menuItem.name)) {
+                // Orange
+                fill(255, 128, 0);
+                text(menuItem.name, menuItem.xText, menuItem.yText);
+            }
+            if (menu.lowestFrequencyList.contains(menuItem.name)) {
+                // Purple
+                fill(127, 0, 255);
+                text(menuItem.name, menuItem.xText, menuItem.yText);
+            }
+
+        }
+
     }
 
 
