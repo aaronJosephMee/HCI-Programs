@@ -1,12 +1,12 @@
 import processing.core.PApplet;
 
-import java.util.ArrayList;
-
 public class a3 extends PApplet {
     // TODO COPY FROM LINE BELOW ----------------------------------------------------------------------
     class Target {
         float x;
         float y;
+        float zoomedOutX;
+        float zoomedOutY;
         float diameter;
         boolean hit;
         boolean highlighted;
@@ -14,19 +14,13 @@ public class a3 extends PApplet {
         Target(float x, float y, float diameter) {
             this.x = x;
             this.y = y;
+
+            this.zoomedOutX = x;
+            this.zoomedOutY = y;
+
             this.diameter = diameter;
             this.hit = false;
             this.highlighted = false;
-        }
-
-        public void display() {
-            if (highlighted) {
-                fill(255, 255, 0); // Yellow color for the highlighted target
-            }
-            else {
-                fill(150);
-            }
-            ellipse(x, y, diameter, diameter);
         }
     }
 
@@ -42,6 +36,8 @@ public class a3 extends PApplet {
     int startTime;
     int endTime;
     int errors;
+
+    float zoomLevel = 1;
 
     public void settings() {
         size(1500, 900);
@@ -86,8 +82,22 @@ public class a3 extends PApplet {
     }
 
     public void drawTargets() {
-        for (Target target : targets) {
-            target.display();
+        for (int i = 0; i < numTargets; i++) {
+            if (targets[i].highlighted) {
+                fill(255, 255, 0); // Yellow color for the highlighted target
+            }
+            else {
+                fill(150);
+            }
+            ellipse(targets[i].x, targets[i].y, targets[i].diameter * zoomLevel, targets[i].diameter * zoomLevel);
+
+            // TODO - DELETE CONTENTS BELOW AFTER DEBUGGING
+            // Display number inside the circle
+            fill(0);
+            textAlign(CENTER, CENTER);
+            textSize(12);
+            text(i + 1, targets[i].x, targets[i].y);
+            // TODO - DELETE CONTENTS ABOVE AFTER DEBUGGING
         }
     }
 
@@ -96,6 +106,36 @@ public class a3 extends PApplet {
             println("Tab pressed. Trial has begun.");
             trialInProgress = true;
             startTrial();
+        }
+        if (key == '1' && zoomLevel == 1) {
+            zoomIn();
+        }
+        else if (key == '1' && zoomLevel == 6) {
+            zoomOut();
+        }
+    }
+
+    public void zoomIn() {
+        zoomLevel = 6;
+        drawZoomedInCircles(mouseX, mouseY);
+    }
+
+    public void zoomOut() {
+        zoomLevel = 1;
+        restoreCanvas();
+    }
+
+    public void drawZoomedInCircles(float zoomX, float zoomY) {
+        for (int i = 0; i < numTargets; i++) {
+            targets[i].x = (targets[i].x - zoomX) * zoomLevel + zoomX;
+            targets[i].y = (targets[i].y - zoomY) * zoomLevel + zoomY;
+        }
+    }
+
+    public void restoreCanvas() {
+        for (int i = 0; i < numTargets; i++) {
+            targets[i].x = targets[i].zoomedOutX;
+            targets[i].y = targets[i].zoomedOutY;
         }
     }
 
@@ -140,7 +180,10 @@ public class a3 extends PApplet {
 
     boolean isMouseOverTarget(Target target) {
         float distance = dist(mouseX, mouseY, target.x, target.y);
-        return distance < target.diameter / 2;
+        if (zoomLevel == 1) {
+            return distance < target.diameter / 2;
+        }
+        return distance < target.diameter * zoomLevel / 2;
     }
 
     public void checkTarget() {
@@ -148,6 +191,7 @@ public class a3 extends PApplet {
             int clickedTarget = -1;
             for (int i = 0; i < numTargets; i++) {
                 if (isMouseOverTarget(targets[i])) {
+                    println("mouse is over target");
                     clickedTarget = i;
                     break;
                 }
@@ -157,6 +201,7 @@ public class a3 extends PApplet {
                 targets[clickedTarget].highlighted = false; // Reset the previous target's color
                 endTime = millis();
                 printTrialDetails();
+                zoomOut();
                 startTrial();
             }
             else if (clickedTarget != -1) {
