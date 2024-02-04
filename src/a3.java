@@ -42,11 +42,12 @@ public class a3 extends PApplet {
 
     float zoomLevel = 1;
     boolean displayZoomField = false;
-
+    boolean betterZoomActive = false;
     float zoomFieldX;
     float zoomFieldY;
     float zoomFieldWidth = 100;
     float zoomFieldHeight = 100;
+    ArrayList<Target> targetsWithinZoomField = new ArrayList<>();
 
     boolean displayMagnification = false;
     boolean transparentMagnification = false;
@@ -102,24 +103,41 @@ public class a3 extends PApplet {
     }
 
     public void drawTargets() {
-        for (int i = 0; i < numTargets; i++) {
-            if (targets[i].highlighted) {
-                fill(255, 255, 0); // Yellow color for the highlighted target
-            }
-            else {
-                fill(150);
-            }
-            stroke(105);
-            strokeWeight(1);
-            ellipse(targets[i].x, targets[i].y, targets[i].diameter * zoomLevel, targets[i].diameter * zoomLevel);
+        if (!betterZoomActive) {
+            for (int i = 0; i < numTargets; i++) {
+                if (targets[i].highlighted) {
+                    fill(255, 255, 0); // Yellow color for the highlighted target
+                }
+                else {
+                    fill(150);
+                }
+                stroke(105);
+                strokeWeight(1);
+                ellipse(targets[i].x, targets[i].y, targets[i].diameter * zoomLevel, targets[i].diameter * zoomLevel);
 
-            // TODO - DELETE CONTENTS BELOW AFTER DEBUGGING
-            // Display number inside the circle
-            fill(0);
-            textAlign(CENTER, CENTER);
-            textSize(12);
-            text(i + 1, targets[i].x, targets[i].y);
-            // TODO - DELETE CONTENTS ABOVE AFTER DEBUGGING
+                // TODO - DELETE CONTENTS BELOW AFTER DEBUGGING
+                // Display number inside the circle
+                fill(0);
+                textAlign(CENTER, CENTER);
+                textSize(12);
+                text(i + 1, targets[i].x, targets[i].y);
+                // TODO - DELETE CONTENTS ABOVE AFTER DEBUGGING
+            }
+        }
+
+        if (betterZoomActive) {
+            for (int i = 0; i < targetsWithinZoomField.size(); i++) {
+                Target zoomedTarget = targetsWithinZoomField.get(i);
+                if (zoomedTarget.highlighted) {
+                    fill(255, 255, 0); // Yellow color for the highlighted target
+                }
+                else {
+                    fill(150);
+                }
+                stroke(105);
+                strokeWeight(1);
+                ellipse(zoomedTarget.x, zoomedTarget.y, zoomedTarget.diameter * zoomLevel, zoomedTarget.diameter * zoomLevel);
+            }
         }
     }
 
@@ -144,16 +162,17 @@ public class a3 extends PApplet {
         else if (key == '1' && zoomLevel == 6) {
             zoomOut();
         }
-        if (key == '2' && zoomLevel == 1) {
+        if (key == '2' && zoomLevel == 1 && !displayMagnification) {
             displayZoomField = true;
         }
-        if (key == '2' && zoomLevel == 6) {
+        if (key == '2' && zoomLevel == 6 && betterZoomActive) {
+            betterZoomActive = false;
             zoomOut();
         }
-        if (key == '3' && zoomLevel == 1 && !displayMagnification) {
+        if (key == '3' && zoomLevel == 1 && !displayMagnification && !transparentMagnification) {
             displayMagnification = true;
         }
-        else if (key == '3' && displayMagnification) {
+        else if (key == '3' && displayMagnification && !transparentMagnification) {
             displayMagnification = false;
         }
         if (key == '4' && zoomLevel == 1 && !displayMagnification) {
@@ -169,6 +188,7 @@ public class a3 extends PApplet {
     public void keyReleased() {
         if (key == '2' && displayZoomField) {
             displayZoomField = false;
+            betterZoomActive = true;
             zoomIn();
         }
     }
@@ -220,30 +240,31 @@ public class a3 extends PApplet {
     }
 
     public void drawZoomedInCircles(float zoomX, float zoomY) {
-        ArrayList<Target> targetsWithinZoomField = new ArrayList<>();
+        targetsWithinZoomField.clear();
 
         for (int i = 0; i < numTargets; i++) {
-            if (isTargetWithinZoomField(targets[i].x, targets[i].y)) {
-                targetsWithinZoomField.add(targets[i]);
+            if (key == '1') {
+                targets[i].x = ((targets[i].x - zoomX) * zoomLevel) + zoomX;
+                targets[i].y = ((targets[i].y - zoomY) * zoomLevel) + zoomY;
             }
-            targets[i].x = ((targets[i].x - zoomX) * zoomLevel) + zoomX;
-            targets[i].y = ((targets[i].y - zoomY) * zoomLevel) + zoomY;
+            if (key == '2') {
+                if (isTargetWithinZoomField(targets[i].x, targets[i].y)) {
+                    targetsWithinZoomField.add(targets[i]);
+                }
+            }
         }
-        println(targetsWithinZoomField.size() + " were found");
 
-//        if (!targetsWithinZoomField.isEmpty()) {
-//            for (int i = 0; i < targetsWithinZoomField.size(); i++) {
-//                float targetX = targetsWithinZoomField.get(i).x;
-//                float targetY = targetsWithinZoomField.get(i).y;
-//
-//                targetsWithinZoomField.get(i).x = ((targetX - mouseX) * zoomLevel) + mouseX;
-//                targetsWithinZoomField.get(i).y = ((targetY - mouseY) * zoomLevel) + mouseY;
-//
-//                ellipse(targetsWithinZoomField.get(i).x, targetsWithinZoomField.get(i).y,
-//                        targetsWithinZoomField.get(i).diameter,
-//                        targetsWithinZoomField.get(i).diameter);
-//            }
-//        }
+        if (!targetsWithinZoomField.isEmpty()) {
+            // Redraw blank canvas (because you zoomed in on nothing)
+            background(255);
+            for (int i = 0; i < targetsWithinZoomField.size(); i++) {
+                float targetX = targetsWithinZoomField.get(i).x;
+                float targetY = targetsWithinZoomField.get(i).y;
+
+                targetsWithinZoomField.get(i).x = ((targetX - mouseX) * zoomLevel) + mouseX;
+                targetsWithinZoomField.get(i).y = ((targetY - mouseY) * zoomLevel) + mouseY;
+            }
+        }
     }
 
     public boolean isTargetWithinZoomField(float targetXCoord, float targetYCoord) {
@@ -259,7 +280,8 @@ public class a3 extends PApplet {
     }
 
     public void startTrial() {
-        if (currentTrial < 5) {
+        errors = 0;
+        if (currentTrial < 50) {
             currentTrial++;
 
             // Check whether we have completed the first trial. Impossible to have prevTarget on first trial
@@ -310,7 +332,6 @@ public class a3 extends PApplet {
             int clickedTarget = -1;
             for (int i = 0; i < numTargets; i++) {
                 if (isMouseOverTarget(targets[i])) {
-                    println("mouse is over target");
                     clickedTarget = i;
                     break;
                 }
