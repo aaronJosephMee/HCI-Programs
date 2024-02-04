@@ -60,35 +60,6 @@ public class a3 extends PApplet {
         createTargets();
     }
 
-    public void createTargets() {
-        for (int i = 0; i < numTargets; i++) {
-            float x = random(targetDiameter, width - targetDiameter);
-            float y = random(targetDiameter, height - targetDiameter);
-
-            // Check if the new target is too close to any existing targets
-            while (isOverlapping(x, y, i)) {
-                x = random(targetDiameter, width - targetDiameter);
-                y = random(targetDiameter, height - targetDiameter);
-            }
-
-            targets[i] = new Target(x, y, targetDiameter);
-        }
-    }
-
-    boolean isOverlapping(float x, float y, int currentIndex) {
-        for (int j = 0; j < currentIndex; j++) {
-            float otherX = targets[j].x;
-            float otherY = targets[j].y;
-
-            // Check if the distance between the centers is less than a certain threshold (e.g., 5 pixels)
-            float distance = dist(x, y, otherX, otherY);
-            if (distance < 30) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public void draw() {
         background(255);
         drawTargets();
@@ -100,54 +71,6 @@ public class a3 extends PApplet {
         if (displayMagnification) {
             drawMagnifier(mouseX, mouseY);
         }
-    }
-
-    public void drawTargets() {
-        if (!betterZoomActive) {
-            for (int i = 0; i < numTargets; i++) {
-                if (targets[i].highlighted) {
-                    fill(255, 255, 0); // Yellow color for the highlighted target
-                }
-                else {
-                    fill(150);
-                }
-                stroke(105);
-                strokeWeight(1);
-                ellipse(targets[i].x, targets[i].y, targets[i].diameter * zoomLevel, targets[i].diameter * zoomLevel);
-
-                // TODO - DELETE CONTENTS BELOW AFTER DEBUGGING
-                // Display number inside the circle
-                fill(0);
-                textAlign(CENTER, CENTER);
-                textSize(12);
-                text(i + 1, targets[i].x, targets[i].y);
-                // TODO - DELETE CONTENTS ABOVE AFTER DEBUGGING
-            }
-        }
-
-        if (betterZoomActive) {
-            for (int i = 0; i < targetsWithinZoomField.size(); i++) {
-                Target zoomedTarget = targetsWithinZoomField.get(i);
-                if (zoomedTarget.highlighted) {
-                    fill(255, 255, 0); // Yellow color for the highlighted target
-                }
-                else {
-                    fill(150);
-                }
-                stroke(105);
-                strokeWeight(1);
-                ellipse(zoomedTarget.x, zoomedTarget.y, zoomedTarget.diameter * zoomLevel, zoomedTarget.diameter * zoomLevel);
-            }
-        }
-    }
-
-    public void drawZoomField() {
-        noFill();
-        stroke(255, 0, 0);
-        strokeWeight(2);
-        zoomFieldX = mouseX - (zoomFieldWidth / 2);
-        zoomFieldY = mouseY - ((zoomFieldHeight / 2));
-        rect(zoomFieldX, zoomFieldY, zoomFieldWidth, zoomFieldHeight);
     }
 
     public void keyPressed() {
@@ -193,6 +116,132 @@ public class a3 extends PApplet {
         }
     }
 
+    public void mousePressed() {
+        checkTarget();
+    }
+
+    public void createTargets() {
+        for (int i = 0; i < numTargets; i++) {
+            float x = random(targetDiameter, width - targetDiameter);
+            float y = random(targetDiameter, height - targetDiameter);
+
+            // Check if the new target is too close to any existing targets
+            while (isOverlapping(x, y, i)) {
+                x = random(targetDiameter, width - targetDiameter);
+                y = random(targetDiameter, height - targetDiameter);
+            }
+
+            targets[i] = new Target(x, y, targetDiameter);
+        }
+    }
+
+    boolean isOverlapping(float x, float y, int currentIndex) {
+        for (int j = 0; j < currentIndex; j++) {
+            float otherX = targets[j].x;
+            float otherY = targets[j].y;
+
+            // Check if the distance between the centers is less than a certain threshold (e.g., 5 pixels)
+            float distance = dist(x, y, otherX, otherY);
+            if (distance < 30) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void drawTargets() {
+        if (!betterZoomActive) {
+            for (int i = 0; i < numTargets; i++) {
+                if (targets[i].highlighted) {
+                    fill(255, 255, 0); // Yellow color for the highlighted target
+                }
+                else {
+                    fill(150);
+                }
+                stroke(105);
+                strokeWeight(1);
+                ellipse(targets[i].x, targets[i].y, targets[i].diameter * zoomLevel, targets[i].diameter * zoomLevel);
+            }
+        }
+
+        if (betterZoomActive) {
+            for (int i = 0; i < targetsWithinZoomField.size(); i++) {
+                Target zoomedTarget = targetsWithinZoomField.get(i);
+                if (zoomedTarget.highlighted) {
+                    fill(255, 255, 0); // Yellow color for the highlighted target
+                }
+                else {
+                    fill(150);
+                }
+                stroke(105);
+                strokeWeight(1);
+                ellipse(zoomedTarget.x, zoomedTarget.y, zoomedTarget.diameter * zoomLevel, zoomedTarget.diameter * zoomLevel);
+            }
+        }
+    }
+
+    public void zoomIn() {
+        zoomLevel = 6;
+        drawZoomedInCircles(mouseX, mouseY);
+    }
+
+    public void zoomOut() {
+        if (betterZoomActive) {
+            betterZoomActive = false;
+        }
+        zoomLevel = 1;
+        restoreCanvas();
+    }
+
+    public void restoreCanvas() {
+        for (int i = 0; i < numTargets; i++) {
+            targets[i].x = targets[i].zoomedOutX;
+            targets[i].y = targets[i].zoomedOutY;
+        }
+    }
+
+    public void drawZoomField() {
+        noFill();
+        stroke(255, 0, 0);
+        strokeWeight(2);
+        zoomFieldX = mouseX - (zoomFieldWidth / 2);
+        zoomFieldY = mouseY - ((zoomFieldHeight / 2));
+        rect(zoomFieldX, zoomFieldY, zoomFieldWidth, zoomFieldHeight);
+    }
+
+    public void drawZoomedInCircles(float zoomX, float zoomY) {
+        targetsWithinZoomField.clear();
+
+        for (int i = 0; i < numTargets; i++) {
+            if (key == '1') {
+                targets[i].x = ((targets[i].x - zoomX) * zoomLevel) + zoomX;
+                targets[i].y = ((targets[i].y - zoomY) * zoomLevel) + zoomY;
+            }
+            if (key == '2') {
+                if (isTargetWithinZoomField(targets[i].x, targets[i].y)) {
+                    targetsWithinZoomField.add(targets[i]);
+                }
+            }
+        }
+
+        if (!targetsWithinZoomField.isEmpty()) {
+            // Redraw blank canvas (because you zoomed in on nothing)
+            background(255);
+            for (int i = 0; i < targetsWithinZoomField.size(); i++) {
+                float targetX = targetsWithinZoomField.get(i).x;
+                float targetY = targetsWithinZoomField.get(i).y;
+
+                targetsWithinZoomField.get(i).x = ((targetX - mouseX) * zoomLevel) + mouseX;
+                targetsWithinZoomField.get(i).y = ((targetY - mouseY) * zoomLevel) + mouseY;
+            }
+        }
+    }
+
+    public boolean isTargetWithinZoomField(float targetXCoord, float targetYCoord) {
+        return (targetXCoord > zoomFieldX && targetXCoord < zoomFieldX + zoomFieldWidth
+                && targetYCoord > zoomFieldY && targetYCoord < zoomFieldY + zoomFieldHeight);
+    }
+
     public void drawMagnifier(int mouseX, int mouseY) {
         int magnifySize = 200;
         int zoom = 6;
@@ -229,56 +278,6 @@ public class a3 extends PApplet {
         }
     }
 
-    public void zoomIn() {
-        zoomLevel = 6;
-        drawZoomedInCircles(mouseX, mouseY);
-    }
-
-    public void zoomOut() {
-        zoomLevel = 1;
-        restoreCanvas();
-    }
-
-    public void drawZoomedInCircles(float zoomX, float zoomY) {
-        targetsWithinZoomField.clear();
-
-        for (int i = 0; i < numTargets; i++) {
-            if (key == '1') {
-                targets[i].x = ((targets[i].x - zoomX) * zoomLevel) + zoomX;
-                targets[i].y = ((targets[i].y - zoomY) * zoomLevel) + zoomY;
-            }
-            if (key == '2') {
-                if (isTargetWithinZoomField(targets[i].x, targets[i].y)) {
-                    targetsWithinZoomField.add(targets[i]);
-                }
-            }
-        }
-
-        if (!targetsWithinZoomField.isEmpty()) {
-            // Redraw blank canvas (because you zoomed in on nothing)
-            background(255);
-            for (int i = 0; i < targetsWithinZoomField.size(); i++) {
-                float targetX = targetsWithinZoomField.get(i).x;
-                float targetY = targetsWithinZoomField.get(i).y;
-
-                targetsWithinZoomField.get(i).x = ((targetX - mouseX) * zoomLevel) + mouseX;
-                targetsWithinZoomField.get(i).y = ((targetY - mouseY) * zoomLevel) + mouseY;
-            }
-        }
-    }
-
-    public boolean isTargetWithinZoomField(float targetXCoord, float targetYCoord) {
-        return (targetXCoord > zoomFieldX && targetXCoord < zoomFieldX + zoomFieldWidth
-                && targetYCoord > zoomFieldY && targetYCoord < zoomFieldY + zoomFieldHeight);
-    }
-
-    public void restoreCanvas() {
-        for (int i = 0; i < numTargets; i++) {
-            targets[i].x = targets[i].zoomedOutX;
-            targets[i].y = targets[i].zoomedOutY;
-        }
-    }
-
     public void startTrial() {
         errors = 0;
         if (currentTrial < 50) {
@@ -296,10 +295,6 @@ public class a3 extends PApplet {
             trialInProgress = false;
             println("trial has ended");
         }
-    }
-
-    public void mousePressed() {
-        checkTarget();
     }
 
     int getNextTarget() {
@@ -336,7 +331,6 @@ public class a3 extends PApplet {
                     break;
                 }
             }
-
             if (clickedTarget != -1 && targets[clickedTarget].highlighted) {
                 targets[clickedTarget].highlighted = false; // Reset the previous target's color
                 endTime = millis();
