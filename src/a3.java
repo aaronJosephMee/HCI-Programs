@@ -262,7 +262,7 @@ public class a3 extends PApplet {
             // Find the circle under the magnifying lens
             for (int i = 0; i < numTargets; i++) {
                 // Check if the mouse is over the circle in the magnifying lens
-                if (dist(targets[i].x, targets[i].y, mouseX, mouseY) < (float) 20 / 2) {
+                if (dist(targets[i].x, targets[i].y, mouseX, mouseY) < (float) 15 / 2) {
                     // Draw the magnified circle
                     if (targets[i].highlighted) {
                         fill(255, 255, 0);
@@ -293,6 +293,7 @@ public class a3 extends PApplet {
         }
         else {
             trialInProgress = false;
+            currentTrial = 0;
             println("trial has ended");
         }
     }
@@ -339,6 +340,9 @@ public class a3 extends PApplet {
                 startTrial();
             }
             else if (clickedTarget != -1) {
+                errors++;
+            }
+            else {
                 errors++;
             }
         }
