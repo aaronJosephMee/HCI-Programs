@@ -1,11 +1,10 @@
 import processing.core.PApplet;
-import processing.core.PGraphics;
 
 import java.util.ArrayList;
 
 public class a3 extends PApplet {
     // TODO COPY FROM LINE BELOW ----------------------------------------------------------------------
-    class Target {
+    static class Target {
         float x;
         float y;
         float zoomedOutX;
@@ -74,39 +73,56 @@ public class a3 extends PApplet {
     }
 
     public void keyPressed() {
-        if (keyCode == TAB && !trialInProgress) {
-            println("Tab pressed. Trial has begun.");
-            trialInProgress = true;
-            startTrial();
-        }
-        if (key == '1' && zoomLevel == 1) {
-            zoomIn();
-        }
-        else if (key == '1' && zoomLevel == 6) {
-            zoomOut();
-        }
-        if (key == '2' && zoomLevel == 1 && !displayMagnification) {
-            displayZoomField = true;
-        }
-        if (key == '2' && zoomLevel == 6 && betterZoomActive) {
-            betterZoomActive = false;
-            zoomOut();
-        }
-        if (key == '3' && zoomLevel == 1 && !displayMagnification && !transparentMagnification) {
-            displayMagnification = true;
-        }
-        else if (key == '3' && displayMagnification && !transparentMagnification) {
-            displayMagnification = false;
-        }
-        if (key == '4' && zoomLevel == 1 && !displayMagnification) {
-            displayMagnification = true;
-            transparentMagnification = true;
-        }
-        else if (key == '4' && displayMagnification) {
-            displayMagnification = false;
-            transparentMagnification = false;
+        switch (keyCode) {
+            case TAB:
+                if (!trialInProgress) {
+                    println("Tab pressed. Trial has begun.");
+                    trialInProgress = true;
+                    startTrial();
+                }
+                break;
+
+            case '1':
+                if (zoomLevel == 1) {
+                    zoomIn();
+                }
+                else if (zoomLevel == 6) {
+                    zoomOut();
+                }
+                break;
+
+            case '2':
+                if (zoomLevel == 1 && !displayMagnification) {
+                    displayZoomField = true;
+                }
+                else if (zoomLevel == 6 && betterZoomActive) {
+                    betterZoomActive = false;
+                    zoomOut();
+                }
+                break;
+
+            case '3':
+                if (zoomLevel == 1 && !displayMagnification && !transparentMagnification) {
+                    displayMagnification = true;
+                }
+                else if (displayMagnification && !transparentMagnification) {
+                    displayMagnification = false;
+                }
+                break;
+
+            case '4':
+                if (zoomLevel == 1 && !displayMagnification) {
+                    displayMagnification = true;
+                    transparentMagnification = true;
+                }
+                else if (displayMagnification) {
+                    displayMagnification = false;
+                    transparentMagnification = !transparentMagnification;
+                }
+                break;
         }
     }
+
 
     public void keyReleased() {
         if (key == '2' && displayZoomField) {
@@ -165,8 +181,7 @@ public class a3 extends PApplet {
         }
 
         if (betterZoomActive) {
-            for (int i = 0; i < targetsWithinZoomField.size(); i++) {
-                Target zoomedTarget = targetsWithinZoomField.get(i);
+            for (Target zoomedTarget : targetsWithinZoomField) {
                 if (zoomedTarget.highlighted) {
                     fill(255, 255, 0); // Yellow color for the highlighted target
                 }
@@ -230,12 +245,12 @@ public class a3 extends PApplet {
         if (!targetsWithinZoomField.isEmpty()) {
             // Redraw blank canvas (because you zoomed in on nothing)
             background(255);
-            for (int i = 0; i < targetsWithinZoomField.size(); i++) {
-                float targetX = targetsWithinZoomField.get(i).x;
-                float targetY = targetsWithinZoomField.get(i).y;
+            for (Target target : targetsWithinZoomField) {
+                float targetX = target.x;
+                float targetY = target.y;
 
-                targetsWithinZoomField.get(i).x = ((targetX - mouseX) * zoomLevel) + mouseX;
-                targetsWithinZoomField.get(i).y = ((targetY - mouseY) * zoomLevel) + mouseY;
+                target.x = ((targetX - mouseX) * zoomLevel) + mouseX;
+                target.y = ((targetY - mouseY) * zoomLevel) + mouseY;
             }
         }
     }
