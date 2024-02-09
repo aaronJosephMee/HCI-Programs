@@ -181,6 +181,9 @@ public class a3 extends PApplet {
     }
 
     public void zoomIn() {
+        if (displayMagnification) {
+            displayMagnification = false;
+        }
         zoomLevel = 6;
         drawZoomedInCircles(mouseX, mouseY);
     }
@@ -257,23 +260,18 @@ public class a3 extends PApplet {
         }
         rect(magnifyX, magnifyY, magnifySize, magnifySize);
 
-        // Check if the mouse is over the magnifying lens
-        if (mouseX > magnifyX && mouseX < magnifyX + magnifySize && mouseY > magnifyY && mouseY < magnifyY + magnifySize) {
-            // Find the circle under the magnifying lens
-            for (int i = 0; i < numTargets; i++) {
-                // Check if the mouse is over the circle in the magnifying lens
-                if (dist(targets[i].x, targets[i].y, mouseX, mouseY) < (float) 15 / 2) {
-                    // Draw the magnified circle
-                    if (targets[i].highlighted) {
-                        fill(255, 255, 0);
-                    }
-                    else {
-                        fill(150);
-                    }
-                    ellipse(targets[i].x, targets[i].y, targets[i].diameter * zoom, targets[i].diameter * zoom);
-                    textAlign(CENTER, CENTER);
-                    text(i + 1, targets[i].x, targets[i].y);
+        // Find the circle under the magnifying lens
+        for (int i = 0; i < numTargets; i++) {
+            // Check if the mouse is over the circle in the magnifying lens
+            if (dist(targets[i].x, targets[i].y, mouseX, mouseY) < (float) 15 / 2) {
+                // Draw the magnified circle
+                if (targets[i].highlighted) {
+                    fill(255, 255, 0);
                 }
+                else {
+                    fill(150);
+                }
+                ellipse(targets[i].x, targets[i].y, targets[i].diameter * zoom, targets[i].diameter * zoom);
             }
         }
     }
