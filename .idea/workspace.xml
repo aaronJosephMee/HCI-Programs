@@ -4,390 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d63d105-9004-40a9-8183-a6a333e0c5e3" name="Changes" comment="Refined some code further&#10;- changed keyPressed() to switch statements instead of if-statements">
-      <change afterPath="$PROJECT_DIR$/src/a4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/1000_Hours_Outside_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/5-0_Radio_Pro_Police_Scanner_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/75_Hard_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/8_Ball_Pool_tm_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/ADP_Mobile_Solutions_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/AI_Chatbot_Open_Chat_AI_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/AI_Mirror_AI_Art_Photo_Editor_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/AI_Plant_Identifier-NatureID_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/AMC_Theatres_Movies_and_More_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/ASCCP_Management_Guidelines_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/A_Dance_of_Fire_and_Ice_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Ableton_Note_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/AdBlock_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Adobe_Acrobat_Reader_Edit_PDF_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Affirm_Buy_now,_pay_over_time_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Airbnb_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Alibaba.com_B2B_Trade_App_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/AllTrails_Hike,_Bike_and_Run_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Alpha_Cop-Case_Law_Guide_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Amazon_Prime_Video_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Amazon_Shopping_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/American_Airlines_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Among_Us_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Ancestry_Family_History_and_DNA_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Angry_Birds_Dream_Blast_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/AnkiMobile_Flashcards_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Arcadia-Arcade_Watch_Games_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Audible_Audio_Entertainment_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/AutoSleep_Track_Sleep_on_Watch_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/BET+_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/BIGO_LIVE-Live_Stream,_Go_Live_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/BLK-Dating_for_Black_singles_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Babbel-Language_Learning_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Bank_of_America_Mobile_Banking_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/BetterMe_Health_Coaching_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/BimmerLink_for_BMW_and_MINI_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/BitLife-Life_Simulator_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Block_Blast_Adventure_Master_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Blood_Type_Diet_reg_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Booking.com_Hotels_and_Travel_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Brain_Test_Tricky_Puzzles_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Bridge_Race_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Broadcastify_Pro_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Brotato_Premium_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Bumble_Dating_App_and_Friends_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/CE5_Contact_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Call_of_Duty_reg_Mobile_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Calm_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Canva_Design,_Photo_and_Video_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/CapCut-Video_Editor_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Capital_One_Mobile_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Capital_One_Shopping_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Cash_App_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Catan_Classic_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Character_AI-Chat_Ask_Create_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Chase_Mobile_reg_Bank_and_Invest_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/ChatBox-AI_Chatbot_Assistant_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/ChatGPT_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/ChatOn-AI_Chat_Bot_Assistant_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Chat_with_Ask_AI_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Chegg_Study-Homework_Helper_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Chess-Play_and_Learn_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Chick-fil-A_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Chime-Mobile_Banking_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Chipotle-Fresh_Food_Fast_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/ChirpOMatic_Bird_Song_ID-USA_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Chispa_Dating_App_for_Latinos_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Clash_of_Clans_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Clime_NOAA_Weather_Radar_Live_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Cloud_Baby_Monitor_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Coin_Master_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Collect_Em_All_Clear_the_Dots_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Costco_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Couch_to_5K_reg-Run_training_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Cricut_Design_Space_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Crunchyroll_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/DairyBar_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Discord-Chat,_Talk_and_Hangout_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Disney+_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Domino_s_Pizza_USA_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/DoorDash-Dasher_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/DoorDash-Food_Delivery_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Dropbox_Cloud_Files_Storage_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Dumb_Ways_to_Die_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Dunkin_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Duo_Mobile_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Duolingo-Language_Lessons_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/ESPN_Live_Sports_and_Scores_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/ETA-GPS_and_maps_driving_times_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Eatventure_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Endling_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/EpocCam_Webcamera_for_Computer_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Etsy_Custom_and_Creative_Goods_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Expedia_Hotels,_Flights_and_Car_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Exploding_Kittens_reg_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/ExpressVPN-VPN_Fast_and_Secure_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/FL_Studio_Mobile_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/FaceApp_Perfect_Face_Editor_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Facebook_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Feeld_Meet_Couples_and_Singles_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Fetch_Have_Fun,_Save_Money_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Fill_The_Fridge_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Fishdom_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Fitbit_Health_and_Fitness_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Flick_Home_Run_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Fly_Delta_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Forest_Focus_for_Productivity_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Free_Tone-Calling_and_Texting_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Funimation_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/GameChanger_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Garten_of_Banban_2_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Garten_of_Banban_3_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Geometry_Dash_Lite_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Gmail-Email_by_Google_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Goblin_Tools_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Going_Balls_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/GoodNovel_and_Books_Web_Novels_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Google_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Google_Authenticator_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Google_Calendar_Get_Organized_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Google_Chrome_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Google_Docs_Sync,_Edit,_Share_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Google_Drive_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Google_Earth_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Google_Maps_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Google_Meet_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Google_Photos_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Google_Sheets_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Google_Translate_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Grammarly-Keyboard_and_Editor_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Grand_Theft_Auto_III_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Grindr-Gay_Dating_and_Chat_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/GroupMe_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/HappyCow-Vegan_Food_Near_You_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Hay_Day_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Headspace_Mindful_Meditation_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Headway_Daily_Book_Summaries_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Hear_My_Baby_Heartbeat_App_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/HeartWatch_Heart_Rate_Tracker_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Hily_Dating_App._Chat_and_Flirt_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Hinge_Dating_App_Meet_People_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Hitman_Sniper_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Hopper_Flights,_Hotels_and_Cars_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/HotSchedules_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Hulu_Watch_TV_shows_and_movies_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/INKHUNTER_PRO_Tattoos_try_on_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Impulse-Brain_Training_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Incredibox_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Indeed_Job_Search_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Instacart_Grocery_delivery_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Instagram_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Intuit_Credit_Karma_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Joi-Live_Stream_and_Video_Chat_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Klarna_Shop_now._Pay_later._.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Koala_Sampler_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Life360_Find_Friends_and_Family_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Lightning_Link_Casino_Slots_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Lightroom_Photo_and_Video_Editor_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/LinkedIn_Network_and_Job_Finder_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/LiveATC_Air_Radio_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Lose_It-Calorie_Counter_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Lowriders_Comeback_2_Cruising_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Lyft_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/MLB_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/MLB_Ballpark_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/MONOPOLY_GO_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Magic_Tiles_3_Piano_Game_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Match_Dating_and_Relationships_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Max_Stream_HBO,_TV,_and_Movies_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/McDonald_s_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Merge_Dragons_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Merge_Mansion_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Messenger_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Microsoft_365_Office_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Microsoft_Authenticator_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Microsoft_Edge_Web_Browser_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Microsoft_Outlook_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Microsoft_Teams_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/MilGPS_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Minecraft_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Mobile_Passport_Control_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Monash_University_FODMAP_diet_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Monument_Valley_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Musi-Simple_Music_Streaming_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/MyChart_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/MyFitnessPal_Calorie_Counter_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/MyFlo_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/My_Bath_and_Body_Works_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/My_Doge_Puzzle_Game_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/My_Macros+_Diet_and_Calories_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/NBA_Live_Games_and_Scores_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Necrophonic_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Netflix_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/NightCap_Camera_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Nike_Shoes,_Apparel,_Stories_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Noom_Healthy_Weight_Loss_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/NordVPN_VPN_Fast_and_Secure_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/OfferUp-Buy._Sell._Letgo._.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Okta_Verify_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/OverDrive_2.6_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/PDG_PROmote_2021-2023_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/PROmote-Army_Study_Guide_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/PUBG_MOBILE_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/PackPoint_Premium_Packing_List_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Panda_Express_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Pandora_Music_and_Podcasts_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Papers,_Please_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Paprika_Recipe_Manager_3_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Paramount+_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/ParkMobile-Find_Parking_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Parking_Jam_3D_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/PayPal-Send,_Shop,_Manage_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Peacock_TV_Stream_TV_and_Movies_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/PeakFinder_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Peloton_Fitness_and_Workouts_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/PhotoPills_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Photoleap_AI_Art_Photo_Editor_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Photomath_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Picsart_AI_Photo_Editor_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/PictureThis-Plant_Identifier_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Pinterest_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Plague_Inc._.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Planet_Fitness_Workouts_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/PlantIn_Plant_Identifier_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Plant_Parent_Plant_Care_Guide_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Plenty_of_Fish_Dating_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Pocket_City_2_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Pocket_GM_3_Football_Sim_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Pokemon_GO_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Poshmark_Buy_and_Sell_Fashion_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Pou_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Pro_Camera_by_Moment_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Procreate_Pocket_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Puzzles_and_Survival_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Quantumult_X_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/QuickBend_Conduit_Bending_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/QuickBooks_Accounting_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/QuickBooks_Self-Employed_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/RFS-Real_Flight_Simulator_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/RadarOmega_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/RadarScope_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Raya_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Rebel_Inc._.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Red_s_First_Flight_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Reddit_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Ring-Always_Home_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Rise_of_Kingdoms_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Road_to_Hana_Maui_GyPSy_Guide_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Roadside_America_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Roblox_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Rocket_Money-Bills_and_Budgets_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/RollerCoaster_Tycoon_reg_Classic_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/SHEIN-Shopping_Online_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/SHOWTIME_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/STARZ_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Sam_s_Club_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Schwab_Mobile_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Screen_Mirroring+_App_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Screen_Mirroring+_for_Fire_TV_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Screen_Mirroring_+_for_Roku_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Shadow_Fight_2_Special_Edition_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Shadowrocket_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Shazam_Music_Discovery_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Shop_All_your_favorite_brands_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/SkyView_reg_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Sleep,_Wake_and_Be_Healthy._.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Slow_Shutter_Cam_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Smart_Cleaner_Clean_Up_Storage_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Snapchat_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Solocator-GPS_Field_Camera_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/SoundCloud_Discover_New_Music_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Southwest_Airlines_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Splice-Video_Editor_and_Maker_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/SpongeBob_SquarePants_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Spotify-Music_and_Podcasts_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Star_Walk_2_The_Night_Sky_Map_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Starbucks_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Stardew_Valley_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Stash-Rule_Based_Proxy_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Stormshot_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Strava_Run,_Ride,_Hike_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Streaks_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Stylebook_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Subway_reg_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Sun_Seeker-Tracker_and_Compass_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/T-Mobile_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/TIDAL_Music_HiFi,_Ad-free_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/TV_Cast_Pro_for_Fire_TV_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/TV_Mirror+_for_Chromecast_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/TV_Remote-Universal_Control_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Taco_Bell_Fast_Food_and_Delivery_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Target_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Teen_Titans_Go_Figure_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Telegram_Messenger_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Temu_Shop_Like_a_Billionaire_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Terraria_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Tetris_reg_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/TextNow_Call_+_Text_Unlimited_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Text_Me-Phone_Call_+_Texting_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/The_75_Soft_Challenge_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/The_Golf_Tracer_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/The_Home_Depot_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/The_New_York_Times_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/The_Past_Within_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/The_Roku_App_Official_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/The_Wall_Street_Journal._.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/The_Wonder_Weeks_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/The_Zeus_Network_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Themify-Widget_and_Icon_Themes_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Things_3_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Threema._The_Secure_Messenger_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Ticket_to_Ride-Train_Game_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Ticketmaster_Buy,_Sell_Tickets_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/TikTok_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Tinder-Dating._Meet_Friends_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Tiny_Wings_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Tomb_of_the_Mask_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/TonalEnergy_Tuner_and_Metronome_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Toon_Blast_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Top_War_Battle_Game_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Townscaper_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Traffic_Run_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Triple_Match_3D_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Trivia_Crack_No_Ads_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Tubi-Watch_Movies_and_TV_Shows_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Tuner_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/TurboScan_tm_Pro_PDF_scanner_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Turo-Find_your_drive_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Twisted_Tangle_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Twitch_Live_Game_Streaming_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Twitter_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Two_Dots_Brain_Puzzle_Games_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Uber-Request_a_ride_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Uber_Eats_Food_Delivery_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Ultimate_Custom_Night_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/United_Airlines_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Upside_Cash_Back-Gas_and_Food_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/VPN-Super_Unlimited_Proxy_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/VSCO_Photo_and_Video_Editor_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Vector_Full_Parkour_Run_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Venmo_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/ViX-Stream_Shows,_Sports,_News_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Viki_Asian_Drama,_Movies_and_TV_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Vrbo_Vacation_Rentals_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/WEBTOON_Comics_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Walkout_Song_DJ_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Walmart_Shopping_and_Savings_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Waterlogue_Photo_to_Painting_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Wayfair-Shop_All_Things_Home_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Waze_Navigation_and_Live_Traffic_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/WhatsApp_Messenger_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/White_Noise_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Widgetable_Lock_Screen_Widget_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Wingspan_The_Board_Game_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Wizz-Expand_Your_World_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Words_With_Friends_2_Word_Game_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Wordscapes_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/WorkOutDoors_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Wyze-Make_Your_Home_Smarter_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Xfinity_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Yahtzee_reg_with_Buddies_Dice_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Yelp_Food,_Delivery_and_Reviews_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/YouTube_Music_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/YouTube_Watch,_Listen,_Stream_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Your_First_Financial_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Yuka-Food_and_Cosmetic_scanner_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Zelle_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Zillow_Real_Estate_and_Rentals_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Zombieville_USA_2_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/Zoom-One_Platform_to_Connect_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/b-hyve_pro_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/bBrowser_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/discovery+_Stream_TV_Shows_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/e-Sword_LT_Bible_Study_to_Go_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/eBay_Marketplace_Shop_and_Sell_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/ecMobile_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/iHeart_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/iReal_Pro_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/iScanner_PDF_Scanner_App_.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images/onX_Hunt_GPS_Hunting_Maps_.png" afterDir="false" />
+    <list default="true" id="1d63d105-9004-40a9-8183-a6a333e0c5e3" name="Changes" comment="- increased size of canvas&#10;- added more icons onto screen&#10;- removed search bar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/a2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/a2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/a4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/a4.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -476,9 +95,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.a4" />
-        <item itemvalue="Application.a3" />
-        <item itemvalue="Application.test" />
         <item itemvalue="Application.a2" />
+        <item itemvalue="Application.test" />
+        <item itemvalue="Application.a3" />
       </list>
     </recent_temporary>
   </component>
@@ -497,7 +116,7 @@
       <workItem from="1707086155280" duration="95000" />
       <workItem from="1707142540992" duration="49000" />
       <workItem from="1707517747633" duration="3594000" />
-      <workItem from="1709247345526" duration="1637000" />
+      <workItem from="1709247345526" duration="42369000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit for part 1">
       <option name="closed" value="true" />
@@ -587,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707521436314</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="- increased size of canvas&#10;- added more icons onto screen&#10;- removed search bar">
+      <option name="closed" value="true" />
+      <created>1709249946537</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1709249946537</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -616,7 +243,8 @@
     <MESSAGE value="Debugged issue where error was not correctly counting when a clicks on the canvas or another circle that is not the target." />
     <MESSAGE value="Refined some code so magnifier would not activate when zoomed in" />
     <MESSAGE value="Refined some code further&#10;- changed keyPressed() to switch statements instead of if-statements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refined some code further&#10;- changed keyPressed() to switch statements instead of if-statements" />
+    <MESSAGE value="- increased size of canvas&#10;- added more icons onto screen&#10;- removed search bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="- increased size of canvas&#10;- added more icons onto screen&#10;- removed search bar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
