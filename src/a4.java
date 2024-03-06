@@ -23,6 +23,9 @@ public class a4 extends PApplet {
         // The full name of the app
         String fullName;
 
+        // The target ID of the icon, for data purposes
+        int targetID;
+
         PImage iconImage;
         PImage iconBlurred;
         float xCoord;
@@ -31,7 +34,7 @@ public class a4 extends PApplet {
         float xText;
         float yText;
 
-        Icon(String name, PImage image, PImage imageBlurred, float x, float y, float xText, float yText) {
+        Icon(String name, PImage image, PImage imageBlurred, float x, float y, float xText, float yText, int targetID) {
             this.fullName = name;
             this.iconImage = image;
             this.iconBlurred = imageBlurred;
@@ -39,6 +42,7 @@ public class a4 extends PApplet {
             this.yCoord = y;
             this.xText = xText;
             this.yText = yText;
+            this.targetID = targetID;
 
             if (name.length() > 9) {
                 this.iconName = name.substring(0, 7) + "...";
@@ -49,7 +53,7 @@ public class a4 extends PApplet {
         }
 
         public String toString() {
-            return iconName;
+            return fullName + " - targetID: " + targetID;
         }
 
         void drawIcon(String searchString) {
@@ -66,14 +70,20 @@ public class a4 extends PApplet {
 
             // Redraw the icon
             if (!isMatch) {
-                image(this.iconBlurred, this.xCoord, this.yCoord, 50, 50);
+                image(this.iconBlurred, this.xCoord, this.yCoord, 30, 30);
             }
             else {
-                image(this.iconImage, this.xCoord, this.yCoord, 50, 50);
+                image(this.iconImage, this.xCoord, this.yCoord, 30, 30);
                 fill(0);
                 textAlign(LEFT);
                 textSize(12);
                 text(this.iconName, this.xText, this.yText);
+                if (!searchString.isEmpty()) {
+                    noFill();
+                    stroke(200, 0, 0);
+                    strokeWeight(3);
+                    rect(xCoord - 10, yCoord - 10, 55, 58);
+                }
             }
         }
     }
@@ -89,18 +99,18 @@ public class a4 extends PApplet {
 
     private ExperimentState state;
     String instructionText = "In this study, you will complete several trials to find app icons.\n" +
-            "Work as quickly and accurately as possible.\n" +
+            "Work as quickly and accurately as possible.\n\n" +
             "Press Enter to continue";
     String part2Text = "For this part you will do a set of 8 blocks of 8 trials, with Typeahead filtering OFF. \n8 " +
-            "icons will be selected at random for you to find. \n" +
+            "icons will be selected at random for you to find. \n\n" +
             "Click to continue";
-    String part3Text = "For this part you will do a set of 5 blocks of 8 trials with Typeahead filtering ON, and then" +
-            " 3 blocks of 8 trials with Typeahead filtering OFF. \n" +
-            "8 icons will be selected at random for you to find. \n" +
+    String part3Text = "For this part you will do a set of 5 blocks of 8 trials with Typeahead filtering ON,\n and " +
+            "then 3 blocks of 8 trials with Typeahead filtering OFF. \n" +
+            "8 icons will be selected at random for you to find. \n\n" +
             "Click to continue";
     String finishedText = "The experiment is complete.";
     ArrayList<Icon> allIcons;
-    final int numberOfIcons = 200;
+    final int numberOfIcons = 300;
     String currentTypedString = "";
 
     int startTime;
@@ -112,7 +122,7 @@ public class a4 extends PApplet {
     boolean isTypefilteringOn;
     Icon currentTarget;
     Icon previousTarget;
-    ArrayList<Icon> blockIcons = new ArrayList<>();
+    ArrayList<Icon> blockIcons;
 
     public void setup() {
         state = ExperimentState.INSTRUCTIONS;
@@ -132,8 +142,8 @@ public class a4 extends PApplet {
 
         // Text data
         textSize(12);
-        float xText = 10;
-        float yText = 80;
+        float xText = 8;
+        float yText = 60;
 
         for (int i = 0; i < numberOfIcons; i++) {
             PImage image = loadImage("images/" + filenames[i]);
@@ -151,20 +161,24 @@ public class a4 extends PApplet {
                     // Reset icon row (x coord)
                     xIcon = 15;
                     // Create new row (y coord)
-                    yIcon += 90;
+                    yIcon += 60;
 
                     // Reset text row (x coord)
                     xText = 15;
                     // Create new row (y coord)
-                    yText += 90;
+                    yText += 60;
                 }
             }
 
             // Create new Icon
-            Icon iconToBeAdded = new Icon(appName, image, imageAltered, xIcon, yIcon, xText, yText);
+            Icon iconToBeAdded = new Icon(appName, image, imageAltered, xIcon, yIcon, xText, yText, i);
             allIcons.add(iconToBeAdded);
         }
+        createTrialList();
+    }
 
+    public void createTrialList() {
+        blockIcons = new ArrayList<>();
         // Generate 8 random icons to be searched for
         for (int i = 0; i < 8; i++) {
             Icon iconToAdd;
@@ -173,7 +187,7 @@ public class a4 extends PApplet {
             } while (blockIcons.contains(iconToAdd));
             blockIcons.add(iconToAdd);
         }
-        runTrial();
+        println(blockIcons.toString());
     }
 
     public void draw() {
@@ -218,14 +232,14 @@ public class a4 extends PApplet {
         textSize(20);
         textAlign(LEFT);
         text("Search: ", 20, 780);
-        text("Type-Ahead Filtering: ", 1250, 750);
+        text("Type-Ahead Filtering: ", 1250, 760);
         if (isTypefilteringOn) {
             fill(0, 150, 0);
-            text("ON", 1435, 750);
+            text("ON", 1435, 760);
         }
         else {
             fill(200, 0, 0);
-            text("OFF", 1435, 750);
+            text("OFF", 1435, 760);
             text("DISABLED", 90, 780);
         }
 
@@ -270,9 +284,11 @@ public class a4 extends PApplet {
         switch (state) {
             case BEFORE_PART2:
                 state = ExperimentState.PART2;
+                runTrial();
                 break;
             case BEFORE_PART3:
                 state = ExperimentState.PART3;
+                runTrial();
                 break;
             case PART3:
             case PART2:
@@ -309,6 +325,10 @@ public class a4 extends PApplet {
                 state = ExperimentState.BEFORE_PART3;
                 isTypefilteringOn = true;
                 currentBlock = 0;
+                createTrialList();
+            }
+            else if (state == ExperimentState.PART3) {
+                state = ExperimentState.FINISHED;
             }
         }
     }
@@ -321,6 +341,7 @@ public class a4 extends PApplet {
 
     public void checkTarget() {
         if (isMouseOverIcon(currentTarget)) {
+            currentTypedString = "";
             endTime = millis();
             printTrialDetails();
             trialNumber++;
@@ -333,16 +354,7 @@ public class a4 extends PApplet {
 
 
     public void printTrialDetails() {
-        float targetID;
-
-        if (trialNumber > 0) {
-            targetID = dist(previousTarget.xCoord, previousTarget.yCoord, currentTarget.xCoord, currentTarget.yCoord);
-        }
-        else {
-            targetID = 0; // Placeholder value for the first trial where no distance is determined
-        }
-
-        println(currentBlock + 1, trialNumber + 1, targetID, (endTime - startTime), numOfErrors);
+        println(currentBlock + 1, trialNumber + 1, currentTarget.targetID, (endTime - startTime), numOfErrors);
     }
 
 

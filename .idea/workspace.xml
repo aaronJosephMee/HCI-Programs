@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d63d105-9004-40a9-8183-a6a333e0c5e3" name="Changes" comment="- increased size of canvas&#10;- added more icons onto screen&#10;- removed search bar">
+    <list default="true" id="1d63d105-9004-40a9-8183-a6a333e0c5e3" name="Changes" comment="deleted import statement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/a4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/a4.java" afterDir="false" />
     </list>
@@ -35,26 +35,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/aaron/IdeaProjects/cmpt481_processing_assignments/src",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "onboarding.tips.debug.path": "/Users/aaron/IdeaProjects/cmpt481_processing_assignments/src/Main.java",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/aaron/IdeaProjects/cmpt481_processing_assignments/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/aaron/IdeaProjects/cmpt481_processing_assignments/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -116,7 +115,8 @@
       <workItem from="1707086155280" duration="95000" />
       <workItem from="1707142540992" duration="49000" />
       <workItem from="1707517747633" duration="3594000" />
-      <workItem from="1709247345526" duration="42369000" />
+      <workItem from="1709247345526" duration="58285000" />
+      <workItem from="1709691112270" duration="631000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit for part 1">
       <option name="closed" value="true" />
@@ -214,7 +214,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709249946537</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="implemented state machine, reworked the majority of code">
+      <option name="closed" value="true" />
+      <created>1709516289654</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1709516289654</updated>
+    </task>
+    <task id="LOCAL-00014" summary="deleted import statement">
+      <option name="closed" value="true" />
+      <created>1709516329699</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1709516329699</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +260,9 @@
     <MESSAGE value="Refined some code so magnifier would not activate when zoomed in" />
     <MESSAGE value="Refined some code further&#10;- changed keyPressed() to switch statements instead of if-statements" />
     <MESSAGE value="- increased size of canvas&#10;- added more icons onto screen&#10;- removed search bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="- increased size of canvas&#10;- added more icons onto screen&#10;- removed search bar" />
+    <MESSAGE value="implemented state machine, reworked the majority of code" />
+    <MESSAGE value="deleted import statement" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted import statement" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
