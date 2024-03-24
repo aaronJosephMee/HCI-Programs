@@ -1,9 +1,7 @@
 import processing.core.PApplet;
 import processing.event.MouseEvent;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class a5 extends PApplet {
     // TODO COPY FROM LINE BELOW ----------------------------------------------------------------------
@@ -82,6 +80,17 @@ public class a5 extends PApplet {
 //            }
         }
 
+        float compare(Gesture g) {
+            float sum = 0;
+            for (int i = 0; i < resampledPointsOriginRescaled.size(); i++) {
+                Point currentPoint = resampledPointsOriginRescaled.get(i);
+                Point comparisonPoint = g.resampledPointsOriginRescaled.get(i);
+
+                sum += currentPoint.calculateDistance(comparisonPoint);
+            }
+            return sum;
+        }
+
         public void resamplePoints() {
             float threshold = getGestureLength() / 64f;
             float currentPathLength = 0;
@@ -96,7 +105,7 @@ public class a5 extends PApplet {
                     Point previousPoint = rawPoints.get(i - 1);
                     float distance = previousPoint.calculateDistance(currentPoint);
 
-                    if (currentPathLength + distance > threshold) {
+                    if (currentPathLength + distance > threshold && resampledPoints.size() < 64) {
                         float thresholdMinusPathLength = threshold - currentPathLength;
                         Point interpolated = previousPoint.interpolate(thresholdMinusPathLength, currentPoint);
                         rawPoints.add(rawPoints.indexOf(currentPoint), interpolated);
@@ -104,7 +113,7 @@ public class a5 extends PApplet {
                         currentPathLength = 0;
                     }
                     else {
-                        currentPathLength += previousPoint.calculateDistance(currentPoint);
+                        currentPathLength += distance;
                     }
 
                 }
@@ -170,7 +179,7 @@ public class a5 extends PApplet {
     float[][] squareTemplate = {{2.5477707f, 12.82541f}, {2.5477707f, 40.765335f}, {0.0f, 67.377144f}, {0.0f,
             95.31707f}, {0.0f, 123.25699f}, {2.5477707f, 149.86879f}, {2.5477707f, 177.80872f}, {2.5477707f,
             205.74864f}, {2.5477707f, 233.68857f}, {2.5477707f, 261.6285f}, {2.5477707f, 289.56842f}, {2.5477707f,
-            317.50836f}, {2.5477707f, 345.44827f}, {0.0f, 372.0601f}, {0.0f, 400.0f}, {20.514849f, 397.5877f}, {41.660656f, 394.38135f}, {62.20501f, 387.96866f}, {84.406105f, 387.96866f}, {105.55191f, 384.7623f}, {127.75304f, 384.7623f}, {149.95413f, 384.7623f}, {172.15521f, 384.7623f}, {194.35631f, 384.7623f}, {216.5574f, 384.7623f}, {238.7585f, 384.7623f}, {260.9596f, 384.7623f}, {283.16068f, 384.7623f}, {305.36176f, 384.7623f}, {327.56287f, 384.7623f}, {349.76395f, 384.7623f}, {371.96506f, 384.7623f}, {394.16614f, 384.7623f}, {400.0f, 364.16428f}, {400.0f, 336.22433f}, {400.0f, 308.28442f}, {397.45224f, 281.6726f}, {394.90445f, 255.0608f}, {392.3567f, 228.44899f}, {389.80893f, 201.83719f}, {384.82806f, 176.49371f}, {382.16562f, 149.9417f}, {377.07007f, 126.53624f}, {377.07007f, 98.59631f}, {374.5223f, 73.86275f}, {374.5223f, 45.922817f}, {374.5223f, 17.982893f}, {364.06265f, 3.2063525f}, {345.46466f, 9.619058f}, {323.26358f, 9.619058f}, {303.61026f, 12.82541f}, {281.40915f, 12.82541f}, {259.20807f, 12.82541f}, {237.00697f, 12.82541f}, {214.8059f, 12.82541f}, {193.66013f, 9.619058f}, {171.45903f, 9.619058f}, {151.80571f, 6.412705f}, {130.65991f, 3.2063525f}, {108.45877f, 3.2063525f}, {86.25768f, 3.2063525f}, {64.056595f, 3.2063525f}, {41.8555f, 3.2063525f}, {22.202179f, 0.0f}, {0.001088525f, 0.0f}};
+            317.50836f}, {2.5477707f, 345.44827f}, {0.0f, 372.0601f}, {0.0f, 400.0f}, {20.514849f, 397.5877f}, {41.660656f, 394.38135f}, {62.20501f, 387.96866f}, {84.406105f, 387.96866f}, {105.55191f, 384.7623f}, {127.75304f, 384.7623f}, {149.95413f, 384.7623f}, {172.15521f, 384.7623f}, {194.35631f, 384.7623f}, {216.5574f, 384.7623f}, {238.7585f, 384.7623f}, {260.9596f, 384.7623f}, {283.16068f, 384.7623f}, {305.36176f, 384.7623f}, {327.56287f, 384.7623f}, {349.76395f, 384.7623f}, {371.96506f, 384.7623f}, {394.16614f, 384.7623f}, {400.0f, 364.16428f}, {400.0f, 336.22433f}, {400.0f, 308.28442f}, {397.45224f, 281.6726f}, {394.90445f, 255.0608f}, {392.3567f, 228.44899f}, {389.80893f, 201.83719f}, {384.82806f, 176.49371f}, {382.16562f, 149.9417f}, {377.07007f, 126.53624f}, {377.07007f, 98.59631f}, {374.5223f, 73.86275f}, {374.5223f, 45.922817f}, {374.5223f, 17.982893f}, {364.06265f, 3.2063525f}, {345.46466f, 9.619058f}, {323.26358f, 9.619058f}, {303.61026f, 12.82541f}, {281.40915f, 12.82541f}, {259.20807f, 12.82541f}, {237.00697f, 12.82541f}, {214.8059f, 12.82541f}, {193.66013f, 9.619058f}, {171.45903f, 9.619058f}, {151.80571f, 6.412705f}, {130.65991f, 3.2063525f}, {108.45877f, 3.2063525f}, {86.25768f, 3.2063525f}, {64.056595f, 3.2063525f}, {41.8555f, 3.2063525f}, {22.202179f, 0.0f}};
 
     float[][] alphaTemplate = {{398.1664f, 0.0f}, {386.9674f, 16.528927f}, {378.00607f, 34.05676f}, {367.9259f,
             48.180447f}, {357.84576f, 64.240616f}, {345.24554f, 82.80448f}, {335.16537f, 102.737656f}, {324.15482f,
@@ -195,8 +204,15 @@ public class a5 extends PApplet {
     public void mouseReleased(MouseEvent event) {
         super.mouseReleased(event);
         currentGesture.rawPoints.add(new Point(event.getX(), event.getY()));
-        currentGesture.resamplePoints();
-        gestures.add(currentGesture);
+
+        // If the gesture is not long enough, ignore it
+        if (currentGesture.getGestureLength() > 5) {
+            currentGesture.resamplePoints();
+            match();
+        }
+        else {
+            currentGesture = new Gesture();
+        }
     }
 
     public void settings() {
@@ -228,6 +244,7 @@ public class a5 extends PApplet {
     }
 
     public void draw() {
+        background(200);
         // Saved gestures
         for (Gesture g : gestures) {
             g.draw();
@@ -244,6 +261,39 @@ public class a5 extends PApplet {
                 Point p2 = currentGesture.rawPoints.get(i + 1);
                 line(p1.x, p1.y, p2.x, p2.y);
             }
+        }
+    }
+
+    void match() {
+        float matchToCircle = circleGesture.compare(currentGesture);
+        float matchToSquare = squareGesture.compare(currentGesture);
+        float matchToAlpha = alphaGesture.compare(currentGesture);
+
+        println("alpha " + matchToAlpha);
+        println("rectangle " + matchToSquare);
+        println("oval " + matchToCircle);
+
+        List<Float> matchValues = Arrays.asList(matchToCircle, matchToSquare, matchToAlpha);
+
+        float min = Collections.min(matchValues);
+        String bestMatch = "none";
+        if (min == matchToCircle) {
+            bestMatch = "oval";
+        }
+        if (min == matchToSquare) {
+            bestMatch = "rectangle";
+        }
+        if (min == matchToAlpha) {
+            bestMatch = "alpha";
+        }
+
+        if (min < 8000) {
+            println("Best match: " + bestMatch + " with error of " + min + " (under error threshold)");
+            gestures.add(currentGesture);
+        }
+        else {
+            println("Best match: " + bestMatch + " with error of " + min + " but above error threshold");
+            currentGesture = new Gesture();
         }
     }
 
