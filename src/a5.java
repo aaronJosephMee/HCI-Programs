@@ -5,6 +5,48 @@ import java.util.*;
 
 public class a5 extends PApplet {
     // TODO COPY FROM LINE BELOW ----------------------------------------------------------------------
+    public abstract class Shape {
+        BoundingBox bounds;
+
+        Shape(BoundingBox bounds) {
+            this.bounds = bounds;
+        }
+
+        abstract void drawShape();
+
+        boolean contains(float x, float y) {
+            return x < bounds.right && x > bounds.left &&
+                    y < bounds.bottom && y > bounds.top;
+        }
+    }
+
+    public class Oval extends Shape {
+
+        Oval(BoundingBox bounds) {
+            super(bounds);
+        }
+
+        @Override
+        void drawShape() {
+            float radiusX = bounds.right - bounds.left;
+            float radiusY = bounds.bottom - bounds.top;
+            ellipse(bounds.left + radiusX / 2, bounds.top + radiusY / 2, radiusX, radiusY);
+        }
+    }
+
+    public class Rectangle extends Shape {
+
+        Rectangle(BoundingBox bounds) {
+            super(bounds);
+        }
+
+        @Override
+        void drawShape() {
+            rect(bounds.left, bounds.top, bounds.right - bounds.left, bounds.bottom - bounds.top);
+        }
+    }
+
+
     public static class Point {
         public float x;
         public float y;
@@ -56,28 +98,6 @@ public class a5 extends PApplet {
                 fill(255, 255, 0);
                 ellipse(p.x, p.y, 10, 10);
             }
-
-//            for (Point p : resampledPoints) {
-//                fill(255, 0, 0);
-//                ellipse(p.x, p.y, 10, 10);
-//            }
-
-//            for (Point p : resampledPointsInOrigin) {
-//                fill(255, 0, 0);
-//                ellipse(p.x, p.y, 10, 10);
-//            }
-//
-//            for (Point p : resampledPointsOriginRescaled) {
-//                fill(0, 0, 255);
-//                ellipse(p.x, p.y, 10, 10);
-//            }
-//
-//            if (boundingBox != null) {
-//                noFill();
-//                stroke(255, 0, 0);
-//                rect(boundingBox.left, boundingBox.top, boundingBox.right - boundingBox.left,
-//                        boundingBox.bottom - boundingBox.top);
-//            }
         }
 
         float compare(Gesture g) {
@@ -153,6 +173,10 @@ public class a5 extends PApplet {
         public String toString() {
             return rawPoints.toString();
         }
+
+        public Point getFirst() {
+            return this.rawPoints.get(0);
+        }
     }
 
     public class BoundingBox {
@@ -167,6 +191,7 @@ public class a5 extends PApplet {
     }
 
     ArrayList<Gesture> gestures = new ArrayList<>();
+    ArrayList<Shape> shapes = new ArrayList<>();
     Gesture currentGesture;
     Gesture circleGesture;
     Gesture squareGesture;
@@ -244,10 +269,17 @@ public class a5 extends PApplet {
     }
 
     public void draw() {
-        background(200);
+        background(150);
         // Saved gestures
         for (Gesture g : gestures) {
             g.draw();
+        }
+
+        stroke(0);
+        strokeWeight(2);
+        fill(250);
+        for (Shape s : shapes) {
+            s.drawShape();
         }
 
         if (currentGesture != null) {
@@ -277,24 +309,42 @@ public class a5 extends PApplet {
 
         float min = Collections.min(matchValues);
         String bestMatch = "none";
+        Shape shape = null;
         if (min == matchToCircle) {
             bestMatch = "oval";
+            shape = new Oval(currentGesture.boundingBox);
         }
         if (min == matchToSquare) {
             bestMatch = "rectangle";
+            shape = new Rectangle(currentGesture.boundingBox);
         }
         if (min == matchToAlpha) {
             bestMatch = "alpha";
+
+            // Getting the reverse array for z ordering of shapes
+            ArrayList<Shape> reversedShapes = new ArrayList<>();
+            for (int i = shapes.size() - 1; i >= 0; i--) {
+                reversedShapes.add(shapes.get(i));
+            }
+
+            for (Shape s : reversedShapes) {
+                if (s.contains(currentGesture.getFirst().x, currentGesture.getFirst().y)) {
+                    shapes.remove(s);
+                    break;
+                }
+            }
         }
 
         if (min < 8000) {
             println("Best match: " + bestMatch + " with error of " + min + " (under error threshold)");
-            gestures.add(currentGesture);
+            if (shape != null) {
+                shapes.add(shape);
+            }
         }
         else {
             println("Best match: " + bestMatch + " with error of " + min + " but above error threshold");
-            currentGesture = new Gesture();
         }
+        currentGesture = new Gesture();
     }
 
 
